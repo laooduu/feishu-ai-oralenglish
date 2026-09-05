@@ -1,4 +1,4 @@
-# Obsidian Speaking Practice
+# Obsidian AI Oral English
 
 把真实的英语口语对话沉淀成一套可持续复习的 Obsidian 系统。
 
@@ -14,13 +14,13 @@
 ## 安装
 
 ```bash
-git clone https://github.com/caibucaiAI/obsidian-speaking-practice.git ~/.codex/skills/obsidian-speaking-practice
+git clone https://github.com/laooduu/obsidian-ai-oralenglish.git ~/.codex/skills/obsidian-ai-oralenglish
 ```
 
 在 Codex 中可以这样开始：
 
 ```text
-使用 $obsidian-speaking-practice 陪我练英语口语，并把今天的练习记录到 Obsidian。
+使用 $obsidian-ai-oralenglish 陪我练英语口语，并把今天的练习记录到 Obsidian。
 ```
 
 首次使用时，请告诉 Codex 你的 Obsidian Vault 和目标练习文件夹。Skill 会优先沿用已有结构；没有结构时，才会创建默认目录。

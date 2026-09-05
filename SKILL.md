@@ -1,9 +1,9 @@
 ---
-name: obsidian-speaking-practice
+name: obsidian-ai-oralenglish
 description: Run an English speaking-practice conversation and maintain its Obsidian records, vocabulary review, weekly recap, and optional life-context closing.
 ---
 
-# Obsidian Speaking Practice
+# Obsidian AI Oral English
 
 Use this skill when a user wants to practice spoken English through real conversation and keep a durable review system in Obsidian. It is for daily practice records, vocabulary capture, feedback, weekly review, and the supporting structure—not generic English translation or unrelated note-taking.
 
