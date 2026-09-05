@@ -1,27 +1,24 @@
 ---
-name: obsidian-ai-oralenglish
-description: Run an English speaking-practice conversation and maintain its Obsidian records, vocabulary review, weekly recap, and optional life-context closing.
+name: feishu-ai-oralenglish
+description: Run English speaking practice and maintain durable daily records, transcripts, vocabulary review, tasks, and weekly recaps in Feishu.
 ---
 
-# Obsidian AI Oral English
+# Feishu AI Oral English
 
-Use this skill when a user wants to practice spoken English through real conversation and keep a durable review system in Obsidian. It is for daily practice records, vocabulary capture, feedback, weekly review, and the supporting structure—not generic English translation or unrelated note-taking.
+Use this skill when a user wants to practice spoken English through real conversation and keep a review system in Feishu. It covers daily practice records, vocabulary capture, feedback, explicit tasks, and weekly review—not generic translation or unrelated Feishu administration.
 
-## Set up only what exists
+## Connect the Feishu system
 
-Locate the user's Obsidian vault and the target practice folder before writing. Preserve an existing structure when present. If none exists, initialize the default layout in [record schema](references/record-schema.md).
+Before reading or writing, load the relevant `lark-shared`, `lark-doc`, `lark-base`, and, when needed, `lark-task` skills and follow their current authentication, permission, formatting, and confirmation rules. Operate the user's resources as the user identity unless they explicitly request bot identity.
 
-Optional context sources may make the daily closing more personal:
+Locate the existing practice documents, vocabulary Base, and optional task list before creating anything. Preserve an existing structure when present. If none exists, initialize the layout in [record schema](references/record-schema.md). Save the returned document URLs, Base token, table ID, and task-list ID for later sessions; never guess identifiers from names.
 
-- A life journal or personal system: read only the recent, relevant entries.
-- A reading-highlights source: use one relevant, actually available highlight only.
-
-Do not assume either source exists. Without them, write the closing from the day's conversation alone. Never invent a personal history, a book quote, or a reading connection.
+Optional life-journal or reading-highlight sources may make the daily closing more personal. Read only recent, relevant information that the user has put in scope. Never invent personal history, quotations, or reading connections.
 
 ## During the conversation
 
 - Let the user finish thoughts. Correct only important, reusable issues; do not treat pauses, stutters, or normal oral repair as mistakes.
-- Quietly collect words, phrases, and sentence patterns the user explicitly asks about or clearly struggles to use. If the user says “record it now,” update the notebook immediately; otherwise batch the capture at the end.
+- Quietly collect words, phrases, and sentence patterns the user explicitly asks about or clearly struggles to use. If the user says “record it now,” update the vocabulary Base immediately; otherwise batch the capture at the end.
 - Prefer one primary English expression for one Chinese request unless alternatives are needed for meaning or register.
 - Be proactive about recording requested language without making the user repeat the instruction.
 
@@ -31,17 +28,17 @@ When the user says they are recording, rehearsing for a video, or clearly switch
 
 ## Close a daily session
 
-Create or update the day’s `对话记录` and `完整逐字稿`, then update the daily index, vocabulary index, master to-do list, and current weekly review.
+Create or update the day's summary document and separate raw-transcript document, upsert the session's reusable vocabulary into Base, create only the Feishu tasks the user clearly intended as actionable to-dos, and link the artifacts to the current weekly review.
 
-- Preserve the raw transcript exactly as available: do not translate, polish, remove repetition, or turn English into Chinese. If an exact transcript is unavailable, say so and do not label a reconstruction as complete.
-- In the daily summary, separate Chinese life/event record, practice stats, emotion tags, to-do items, improvement feedback, progress feedback, and a short daily closing. Use the order in [record schema](references/record-schema.md).
-- Every feedback or progress-tag section begins with one concise summary sentence, then the supporting table.
-- Use emotion tags only when supported by the conversation, including a clearly expressed or evident motivational state. Do not default to “not stated” when the user is plainly excited, anxious, tired, or calm.
-- Keep daily vocabulary selective when a session is mostly Chinese: record only items that were actually discussed and are worth reusing.
-- Update a connected life journal only for a meaningful event, decision, or durable insight. Follow that system’s own rules if it has them.
+- Preserve the raw transcript exactly as available. Do not translate, polish, remove repetition, or turn English into Chinese. If an exact transcript is unavailable, say so and do not label a reconstruction as complete.
+- Structure the daily summary in the order defined by [record schema](references/record-schema.md).
+- Begin every improvement and progress section with one concise summary sentence, followed by its supporting table.
+- Use emotion tags only when supported by the conversation, including a clearly evident motivational state.
+- Keep vocabulary selective when a session is mostly Chinese: store only expressions actually discussed and worth reusing.
+- Treat a conversational idea as a Feishu task only when the user clearly states an action or asks to track it. Do not create duplicate tasks on retries; retain the returned task GUID and URL.
 
 ## Weekly review
 
-Open or create the weekly review on Sunday when the user asks to begin it. Put the mood timeline first, then vocabulary retest, English tags, to-do check, weekly reflection, and two next-week priorities. Generate retest questions from that week’s notebook and make answers independently revealable using Obsidian-native collapsed callouts; do not claim internal links work unless they were verified.
+When the user asks to begin a weekly review, open or create the corresponding Feishu document. Put the mood timeline first, then vocabulary retest, English feedback tags, task check, weekly reflection, and two priorities for next week. Generate retest questions from that week's Base records. Place answers in collapsed sections when supported by the document format; otherwise put them under a clearly separated answer section without claiming they are hidden.
 
-Read [record schema](references/record-schema.md) before creating or materially changing the daily or weekly format.
+Read [record schema](references/record-schema.md) before creating or materially changing the Feishu documents, Base, or task-list structure.

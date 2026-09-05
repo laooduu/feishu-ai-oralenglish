@@ -1,4 +1,4 @@
 interface:
-  display_name: "Obsidian AI 英语口语"
-  short_description: "练口语并自动维护 Obsidian 记录与周复盘"
-  default_prompt: "使用 $obsidian-ai-oralenglish 陪我练英语口语，并按 Obsidian 练习系统记录今天的对话。"
+  display_name: "飞书 AI 英语口语"
+  short_description: "练口语并自动维护飞书记录、单词本与周复盘"
+  default_prompt: "使用 $feishu-ai-oralenglish 陪我练英语口语，并把今天的练习记录到飞书。"
